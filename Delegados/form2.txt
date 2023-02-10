@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace w01
+{
+public partial class Form2 : Form
+{
+	// Delegado
+	public delegate void DelegadoTitulo(string mensaje);
+
+	//Evento
+	public event DelegadoTitulo MiEvento;
+
+	public Form2()
+	{
+		InitializeComponent();
+	}
+
+	private void btnEnviar_Click(object sender, EventArgs e)
+	{
+		// Al evento Click del Boton invocamos el Evento y pasamos el TEXTO
+		this.MiEvento(txtTitulo.Text);
+	}
+}
+}
